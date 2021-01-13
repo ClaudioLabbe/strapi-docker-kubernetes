@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: strapi-servicio
+spec:
+  selector:
+    app: strapi_app
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 1337
+      targetPort: 1337

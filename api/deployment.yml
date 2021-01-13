@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi-deployment
+  labels:
+    app: strapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: strapi_app
+  template:
+    metadata:
+      labels:
+        app: strapi_app
+    spec:
+      containers:
+      - name: strapi
+        env:
+          - name: DB_HOST
+            value: "10.111.192.3"
+          - name: DB_USERNAME
+            value: "root"
+          - name: DB_NAME
+            value: "strapi"
+          - name: DB_PASSWORD
+            value: "strapi"
+          - name: DB_PORT
+            value: "3306"
+        imagePullPolicy: IfNotPresent
+        image: us.gcr.io/proyecto-docker-301320/strapi_app@sha256:37934cfb7efbe120972874a17aac3e630b93676c08ac0ab59c16252adf203996
+        ports:
+        - containerPort: 1337
+      #   volumeMounts:
+      #     - name: vol
+      #       mountPath: 
+      # volumes:
+      #   - name: vol
+      #     persistentVolumeClaim:
+      #       claimName: pvc-node

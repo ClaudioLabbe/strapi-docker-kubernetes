@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+  labels:
+    app: react-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react_app
+  template:
+    metadata:
+      labels:
+        app: react_app
+    spec:
+      containers:
+      - name: react
+        env:
+          - name: REACT_APP_BACKEND_URL
+            value: "http://35.237.18.252:1337"
+        imagePullPolicy: IfNotPresent
+        image: us.gcr.io/proyecto-docker-301320/react_app@sha256:82c26e207bccbc05eb900b62b096402168488d4a21ee8a63653e95859343df57
+        ports:
+        - containerPort: 3000
