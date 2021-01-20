@@ -18,23 +18,43 @@ spec:
       - name: strapi
         env:
           - name: DB_HOST
-            value: "10.111.192.3"
-          - name: DB_USERNAME
-            value: "root"
-          - name: DB_NAME
-            value: "strapi"
-          - name: DB_PASSWORD
-            value: "strapi"
+            value: "localhost"
           - name: DB_PORT
             value: "3306"
-        imagePullPolicy: IfNotPresent
+          - name: DB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: cloudsql-db-credentials
+                key: username
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: cloudsql-db-credentials
+                key: password
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: cloudsql-db-credentials
+                key: dbname
         image: us.gcr.io/proyecto-docker-301320/strapi_app@sha256:37934cfb7efbe120972874a17aac3e630b93676c08ac0ab59c16252adf203996
         ports:
         - containerPort: 1337
-      #   volumeMounts:
-      #     - name: vol
-      #       mountPath: 
-      # volumes:
-      #   - name: vol
-      #     persistentVolumeClaim:
-      #       claimName: pvc-node
+        volumeMounts:
+          - name: vol
+            mountPath: /usr/src/app/public/uploads
+      - name: proxy
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        command: ["/cloud_sql_proxy",
+                  "-instances=proyecto-docker-301320:us-east1:strapi=tcp:3306",
+                  "-credential_file=/secrets/cloudsql/credentials.json"]
+        volumeMounts:
+          - name: cloudsql-instance-credentials
+            mountPath: /secrets/cloudsql
+            readOnly: true
+      volumes:
+      - name: vol
+        persistentVolumeClaim:
+          claimName: pvc-strapi
+      - name: cloudsql-instance-credentials
+        secret:
+          secretName: cloudsql-instance-credentials
