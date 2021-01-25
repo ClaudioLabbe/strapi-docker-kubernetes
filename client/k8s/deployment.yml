@@ -18,8 +18,8 @@ spec:
       - name: react
         env:
           - name: REACT_APP_BACKEND_URL
-            value: "http://35.231.113.11:1337"
+            value: "http://35.243.129.136:1337"
         imagePullPolicy: IfNotPresent
-        image: us.gcr.io/proyecto-docker-301320/react-app:20210120223410
+        image: us.gcr.io/proyecto-docker-301320/react-app
         ports:
         - containerPort: 3000

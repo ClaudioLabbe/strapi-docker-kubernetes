@@ -36,7 +36,7 @@ spec:
               secretKeyRef:
                 name: cloudsql-db-credentials
                 key: dbname
-        image: us.gcr.io/proyecto-docker-301320/strapi_app@sha256:37934cfb7efbe120972874a17aac3e630b93676c08ac0ab59c16252adf203996
+        image: us.gcr.io/proyecto-docker-301320/strapi_app@
         ports:
         - containerPort: 1337
         volumeMounts:
