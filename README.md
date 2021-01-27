@@ -26,9 +26,9 @@ credenciales BDD
 
 creacion imagen:
 - docker build . -t []/[]/"nombre de la imagen"
-    ejemplo: docker build . -t us.gcr.io/"IDPROYECTO"/strapi_app
+    - ejemplo: docker build . -t us.gcr.io/"IDPROYECTO"/strapi_app
 - docker push []/[]/"nombre de la imagen"
-    ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
+    - ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
 
 Monificar deployment.yml con los zona, ID de tu proyecto y nombre de la imagen creada.
 Ejecutar:
@@ -41,9 +41,9 @@ Ejecutar:
 
 creacion imagen:
 - docker build . -t []/[]/"nombre de la imagen"
-    ejemplo: docker build . -t us.gcr.io/"IDPROYECTO"/strapi_app
+    - ejemplo: docker build . -t us.gcr.io/"IDPROYECTO"/strapi_app
 - docker push []/[]/"nombre de la imagen"
-    ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
+    - ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
 
 Monificar deployment.yml con los zona, ID de tu proyecto y nombre de la imagen creada,a demas modificar la variable de entorno "REACT_APP_BACKEND_URL" con la ruta de la API ejemplo "http://12.345.678.901:1337"
 Ejecutar:
