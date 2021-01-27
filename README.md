@@ -9,7 +9,7 @@ GCP: instancia MySQL:
 Cargar dump.sql
 - Crear STORAGE
 - Subir archivo dump.sql al Bucket
-- Creacion de tablas y su respectiblo poblado
+- Creacion de tablas y su respectivo poblado
     - Ir a la instancia e importar dump.sql seleccionando la base de dato anteriormente creada
 
 Crear cuenta de servicio para conectarse a SQL, luego generar llave
