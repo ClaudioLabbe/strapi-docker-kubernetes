@@ -6,6 +6,12 @@ GCP: instancia MySQL:
 - seleccionar ip privada
 - crear usuario
 
+Cargar dump.sql
+- Crear STORAGE
+- Subir archivo dump.sql al Bucket
+- Creacion de tablas y su respectiblo poblado
+    - Ir a la instancia e importar dump.sql seleccionando la base de dato anteriormente creada
+
 Crear cuenta de servicio para conectarse a SQL, luego generar llave
 
 Autenticar con GCLOUD por consola
