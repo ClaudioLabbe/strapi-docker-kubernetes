@@ -15,10 +15,7 @@ Crear secretos con la cuenta de servicio SQL
 - kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json="llave descargada"
 
 credenciales BDD
-- kubectl create secret generic cloudsql-db-credentials \
-    --from-literal=username="usuario" \
-    --from-literal=password="contraseña" \
-    --from-literal=dbname="base de dato"
+- kubectl create secret generic cloudsql-db-credentials --from-literal=username="usuario" --from-literal=password="contraseña" --from-literal=dbname="base de dato"
 
 ----------------------------------------------
 
@@ -31,10 +28,10 @@ creacion imagen:
     - ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
 
 Monificar deployment.yml con los zona, ID de tu proyecto y nombre de la imagen creada.
-Ejecutar:
-- kubectl apply -f pvc.yaml
-- kubectl apply -f deployment.yml
-- kubectl apply -f service.yml
+- Ejecutar:
+    - kubectl apply -f pvc.yaml
+    - kubectl apply -f deployment.yml
+    - kubectl apply -f service.yml
 ----------------------------------------------
 
 # CLIENTE
@@ -46,6 +43,6 @@ creacion imagen:
     - ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
 
 Monificar deployment.yml con los zona, ID de tu proyecto y nombre de la imagen creada,a demas modificar la variable de entorno "REACT_APP_BACKEND_URL" con la ruta de la API ejemplo "http://12.345.678.901:1337"
-Ejecutar:
-- kubectl apply -f deployment.yml
-- kubectl apply -f service.yml
+- Ejecutar:
+    - kubectl apply -f deployment.yml
+    - kubectl apply -f service.yml
