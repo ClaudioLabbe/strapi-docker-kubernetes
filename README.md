@@ -33,7 +33,7 @@ creacion imagen:
 - docker push []/[]/"nombre de la imagen"
     - ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
 
-Monificar deployment.yml con la zona, ID de tu proyecto y nombre de la imagen creada.
+Modificar deployment.yml con la zona, ID de tu proyecto y nombre de la imagen creada.
 - Ejecutar:
     - kubectl apply -f pvc.yaml
     - kubectl apply -f deployment.yml
@@ -48,7 +48,7 @@ creacion imagen:
 - docker push []/[]/"nombre de la imagen"
     - ejemplo: docker push us.gcr.io/"IDPROYECTO"/strapi_app
 
-Monificar deployment.yml con la zona, ID de tu proyecto y nombre de la imagen creada,a demas modificar la variable de entorno "REACT_APP_BACKEND_URL" con la ruta de la API ejemplo "http://12.345.678.901:1337"
+Modificar deployment.yml con la zona, ID de tu proyecto y nombre de la imagen creada,a demas modificar la variable de entorno "REACT_APP_BACKEND_URL" con la ruta de la API ejemplo "http://12.345.678.901:1337"
 - Ejecutar:
     - kubectl apply -f deployment.yml
     - kubectl apply -f service.yml
