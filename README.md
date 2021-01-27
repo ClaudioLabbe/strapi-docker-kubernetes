@@ -1,10 +1,10 @@
 # strapi-docker-kubernetes
 
-GCP: instancia MySQL
-crear instancia de base de dato SQL
-crear base de dato, ejemplo: "strapi"
-seleccionar ip privada
-crear usuario
+GCP: instancia MySQL:
+- crear instancia de base de dato SQL.
+- crear base de dato, ejemplo: "strapi"
+- seleccionar ip privada
+- crear usuario
 
 Crear cuenta de servicio para conectarse a SQL, luego generar llave
 
@@ -12,14 +12,14 @@ Autenticar con GCLOUD por consola
     gcloud init
 
 Crear secretos con la cuenta de servicio SQL
-    kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json="llave descargada"
+- kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json="llave descargada"
 
 credenciales BDD
-kubectl create secret generic cloudsql-db-credentials \
+- kubectl create secret generic cloudsql-db-credentials \
     --from-literal=username="usuario" \
     --from-literal=password="contraseña" \
     --from-literal=dbname="base de dato"
-    
+
 ----------------------------------------------
 
 # API
