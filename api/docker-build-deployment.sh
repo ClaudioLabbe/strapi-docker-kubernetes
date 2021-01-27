@@ -27,6 +27,7 @@ cd k8s
 
 sed -i "" "s/strapi_app@/$IMAGE_NAME:$VERSION/g" deployment.yml
 
+kubectl apply -f pvc.yaml
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 
