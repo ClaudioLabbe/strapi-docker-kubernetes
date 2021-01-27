@@ -19,6 +19,7 @@ kubectl create secret generic cloudsql-db-credentials \
     --from-literal=username="usuario" \
     --from-literal=password="contraseña" \
     --from-literal=dbname="base de dato"
+    
 ----------------------------------------------
 
 # API
