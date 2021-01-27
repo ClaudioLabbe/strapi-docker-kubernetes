@@ -25,10 +25,10 @@ echo "deployment API"
 
 cd k8s
 
-sed -i "" "s/strapi_app@/strapi_app:$VERSION/g" deployment.yml
+sed -i "" "s/strapi_app@/$IMAGE_NAME:$VERSION/g" deployment.yml
 
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 
-sed -i "" "s/strapi_app:$VERSION/strapi_app@/g" deployment.yml
+sed -i "" "s/$IMAGE_NAME:$VERSION/strapi_app@/g" deployment.yml
 echo "FIN deployment"

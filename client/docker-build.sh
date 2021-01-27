@@ -25,11 +25,11 @@ echo "deployment CLIENT"
 
 cd k8s
 
-sed -i "" "s/react-app/react-app:$VERSION/g" deployment.yml
+sed -i "" "s/react-app/$IMAGE_NAME:$VERSION/g" deployment.yml
 
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 
-sed -i "" "s/react-app:$VERSION/react-app/g" deployment.yml
+sed -i "" "s/$IMAGE_NAME:$VERSION/react-app/g" deployment.yml
 echo "FIN deployment"
 
